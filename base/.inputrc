@@ -1,0 +1,9 @@
+# to avoid strange behaviours
+# look at include /etc/inputrc
+
+# disable visual beel
+set bell-style none
+
+# to only display commands with same beginnig
+"\e[A":history-search-backward
+"\e[B":history-search-forward

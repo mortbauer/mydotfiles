@@ -1,0 +1,2 @@
+#text/html;                      html2text -utf8 '%s'; nametemplate=%s.html; copiousoutput
+text/html; lynx -assume_charset=utf-8 -display_charset=utf-8 -dump '%s'; copiousoutput; description=HTML Text; nametemplate=%s.html

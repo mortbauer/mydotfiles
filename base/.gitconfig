@@ -1,0 +1,22 @@
+[user]
+	email = mortbauer@gmail.com
+	name = Martin Ortbauer
+[giggle]
+	main-window-view = HistoryView
+	history-view-vpane-position = 275
+	file-view-vpane-position = 628
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+[include]
+	path = .gitconfig_github
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[url "https://"]
+	insteadOf = git://
+#
+#from: http://blog.martinfenner.org/2014/08/25/using-microsoft-word-with-git/
+[diff "pandoc"]
+  textconv=pandoc --to=markdown
+  prompt = false
+[alias]
+  wdiff = diff --word-diff=color --unified=1

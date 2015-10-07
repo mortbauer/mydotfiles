@@ -1,0 +1,13 @@
+--langdef=VB
+--langmap=VB:.bas.cls.ctl.frm.vbs
+--regex-VB=/^(Begin|\b)[ \t]*VB.Form[ \t]+([a-zA-Z0-9_]+)/\2/F,form/i
+--regex-VB=/^(Public|Private|\b)[ \t]*Sub[ \t]+([a-zA-Z0-9_]+)/\2/s,subroutine/i
+--regex-VB=/^(Declare|Public|Private|\b)[ \t]*Function[ \t]+([a-zA-Z0-9_]+)/\2/f,function/i
+--regex-VB=/^(Public|Private|\s)[ \t]+([a-zA-Z0-9_]+)[ \t]+As[ \t]+/\2/v,variable/i
+--regex-VB=/^(Global)[ \t]+([a-zA-Z0-9_]+)[ \t]+As[ \t]+/\2/g,global/i
+--regex-VB=/^(Public|Private|\b)[ \t]*Const[ \t]+([a-zA-Z0-9_]+)[ \t]+(As|=)[ \t]+/\2/c,const/i
+--regex-VB=/^(Public|\b)[ \t]*Property[ \t]*(Get|Let|Set)[ \t]+([a-zA-Z0-9_]+)/\3/n,name/i
+--regex-VB=/^(Public|Private|\b)[ \t]*Enum[ \t]+([a-zA-Z0-9_]+)/\2/e,enum/i
+--regex-VB=/^(Public|Private|\b)[ \t]*Type[ \t]+([a-zA-Z0-9_]+)/\2/t,type/i
+--regex-VB=/^([a-zA-Z_]+):/\1/l,label/i
+

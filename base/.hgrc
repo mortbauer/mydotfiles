@@ -1,0 +1,13 @@
+[ui]
+username = Martin Ortbauer <mortbauer@gmail.com>
+editor = vim
+
+[alias]
+
+[extensions]
+patchbomb=
+
+[email]
+from=mortbauer@gmail.com
+method = /usr/sbin/sendmail
+cc = mortbauer@gmail.com
