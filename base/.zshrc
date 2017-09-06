@@ -20,7 +20,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(history-substring-search virtualenv custompromptprefix)
+plugins=(history-substring-search virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,7 +47,7 @@ bindkey "\eOF" end-of-line
 # }}} Keys
 
 # {{{ Theme
-PROMPT=$'%{$fg[yellow]%}[%{$fg[white]%}%n@%M%{$fg[yellow]%}]:%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ $(custom_prompt_info) $(virtualenv_prompt_info)%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} \
+PROMPT=$'%{$fg[yellow]%}[%{$fg[white]%}%n@%M%{$fg[yellow]%}]:%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ $(virtualenv_prompt_info)%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} \
 %{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
