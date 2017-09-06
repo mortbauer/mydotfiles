@@ -77,9 +77,11 @@ On_IPurple='\e[10;95m'  # Purple
 On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 
-source /usr/share/git/git-prompt.sh
-Git='$(__git_ps1 " (%s)")'
-PS1="\n\[$Cyan\]\t\[$BBlack\] [\[$Blue\]\u@\H\[$White\]:${SSH_TTY:-o}\[$BGreen\] +${SHLVL}\[$BBlack\]] \w\[$Yellow\]$Git\[$Cyan\]\n\$ "
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+PS1="\n\[$Cyan\]\t\[$BBlack\] [\[$Blue\]\u@\H\[$White\]:${SSH_TTY:-o}\[$BGreen\] +${SHLVL}\[$BBlack\]] \w\[$Yellow\]\$(parse_git_branch)\[$Cyan\]\n\$ "
 # }}}
 # {{{ Title
 # Allow the user to set the title.
