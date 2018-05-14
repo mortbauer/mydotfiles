@@ -12,6 +12,7 @@ from ranger.api.commands import *
 
 # You can import any python module as needed.
 import os
+import shlex
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a
 # command.  Try typing ":my_edit<ENTER>" in ranger!
