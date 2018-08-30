@@ -3,7 +3,7 @@
 # xdg_base variables point actually to default, maybe not needed, but need to
 # check my vim configs
 export ANDROID_HOME=/opt/android-sdk
-export PATH=$HOME/bin:$HOME/.npm/bin:$HOME/.local/bin:$PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+export PATH=$HOME/workspace/bin:$HOME/bin:$HOME/.npm/bin:$HOME/.local/bin:$PATH:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
@@ -76,7 +76,6 @@ alias uwiki="cd $WIKI; make html; cd -"
 export DIPL_PATH="/home/martin/Documents/Studies/DIPL/ventilator/"
 
 alias performance="sudo cpupower frequency-set -g performance"
-alias permissions=stat -c "%A %a %n"
 
 alias fmail='offlineimap -c ~/.config/offlineimap/offlineimap.conf'
 export OF23_BASHRC="/home/martin/opt/OpenFOAM/OpenFOAM-2.3.x/etc/bashrc"
@@ -101,3 +100,25 @@ alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cres
 export CAE="cae.zserv.tuwien.ac.at"
 export mat="e0825649"
 export HPC="mortbauer.asuscomm.com"
+alias get_esp32='export PATH="$PATH:$HOME/esp/xtensa-esp32-elf/bin";export IDF_PATH="$HOME/esp/pycom-esp-idf/"'
+
+alias nbstrip_jq="jq --indent 1 \
+    '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+    | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+    | .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+    | .cells[].metadata = {} \
+    '"
+sshProd (){
+    ssh -i $HOME/.ssh/P/id_rsa -p 22022 root@$1
+}
+sshQual (){
+    ssh -i $HOME/.ssh/Q/id_rsa -p 22023 root@$1
+}
+sshDev (){
+    ssh -i $HOME/.ssh/D/id_rsa -p 22023 root@$1
+}
+
+alias tunProd="cd $HOME/workspace/schindler-ahead-support-vpn/ && sudo openvpn prdIoEE.ovpn"
+alias tunQual="cd $HOME/workspace/schindler-ahead-support-vpn/ && sudo openvpn qulIoEE.ovpn"
+alias tunDev="cd $HOME/ortbauma/workspace/schindler-ahead-support-vpn/ && sudo openvpn dvlIoEE.ovpn"
+alias killtun="sudo killall openvpn"

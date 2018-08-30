@@ -77,7 +77,6 @@ On_IPurple='\e[10;95m'  # Purple
 On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 
-source /usr/share/git/git-prompt.sh
 Git='$(__git_ps1 " (%s)")'
 PS1="\n\[$Cyan\]\t\[$BBlack\] [\[$Blue\]\u@\H\[$White\]:${SSH_TTY:-o}\[$BGreen\] +${SHLVL}\[$BBlack\]] \w\[$Yellow\]$Git\[$Cyan\]\n\$ "
 # }}}
@@ -88,3 +87,28 @@ function title {
 }
 # }}} Title
 
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+
+
+export MYVIMRC='~/.config/vim/vimrc'  #or any other location you want
+export VIMINIT='source $MYVIMRC'

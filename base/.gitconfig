@@ -1,6 +1,8 @@
 [user]
-	email = mortbauer@gmail.com
+	email = martin.ortbauer@schindler.com
 	name = Martin Ortbauer
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [giggle]
 	main-window-view = HistoryView
 	history-view-vpane-position = 275
@@ -11,12 +13,33 @@
 	path = .gitconfig_github
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-[url "https://"]
-	insteadOf = git://
+;[url "https://"]
+	;insteadOf = git://
 #
 #from: http://blog.martinfenner.org/2014/08/25/using-microsoft-word-with-git/
-[diff "pandoc"]
-  textconv=pandoc --to=markdown
-  prompt = false
 [alias]
   wdiff = diff --word-diff=color --unified=1
+	d = difftool
+[color]
+	ui = auto
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
+[core]
+attributesfile = ~/.gitattributes_global
+
+[filter "nbstrip_full"]
+clean = "jq --indent 1 \
+        '(.cells[] | select(has(\"outputs\")) | .outputs) = []  \
+        | (.cells[] | select(has(\"execution_count\")) | .execution_count) = null  \
+        | .metadata = {\"language_info\": {\"name\": \"python\", \"pygments_lexer\": \"ipython3\"}} \
+        | .cells[].metadata = {} \
+        '"
+smudge = cat
+required = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
