@@ -122,3 +122,8 @@ alias tunProd="cd $HOME/workspace/schindler-ahead-support-vpn/ && sudo openvpn p
 alias tunQual="cd $HOME/workspace/schindler-ahead-support-vpn/ && sudo openvpn qulIoEE.ovpn"
 alias tunDev="cd $HOME/ortbauma/workspace/schindler-ahead-support-vpn/ && sudo openvpn dvlIoEE.ovpn"
 alias killtun="sudo killall openvpn"
+
+export ARDUINO_DIR=/home/ortbauma/arduino-1.8.6/
+export ARDUINO_PACKAGE_DIR=/home/ortbauma/.arduino15/packages/
+export ARDMK_DIR=$HOME/workspace/tools/Arduino-Makefile
+export AVR_TOOLS_DIR=/usr
