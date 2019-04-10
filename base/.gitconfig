@@ -38,8 +38,5 @@ clean = "jq --indent 1 \
         '"
 smudge = cat
 required = true
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+[push]
+	default = simple

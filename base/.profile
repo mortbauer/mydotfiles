@@ -118,12 +118,18 @@ sshDev (){
     ssh -i $HOME/.ssh/D/id_rsa -p 22023 root@$1
 }
 
-alias tunProd="cd $HOME/workspace/schindler-ahead-support-vpn/ && sudo openvpn prdIoEE.ovpn"
-alias tunQual="cd $HOME/workspace/schindler-ahead-support-vpn/ && sudo openvpn qulIoEE.ovpn"
-alias tunDev="cd $HOME/ortbauma/workspace/schindler-ahead-support-vpn/ && sudo openvpn dvlIoEE.ovpn"
+alias tunProd="cd $HOME/schindler-ahead-support-vpn/ && sudo openvpn prdIoEE.ovpn"
+alias tunQual="cd $HOME/schindler-ahead-support-vpn/ && sudo openvpn qulIoEE.ovpn"
+alias tunDev="cd $HOME/schindler-ahead-support-vpn/ && sudo openvpn dvlIoEE.ovpn"
 alias killtun="sudo killall openvpn"
 
 export ARDUINO_DIR=/home/ortbauma/arduino-1.8.6/
 export ARDUINO_PACKAGE_DIR=/home/ortbauma/.arduino15/packages/
 export ARDMK_DIR=$HOME/workspace/tools/Arduino-Makefile
 export AVR_TOOLS_DIR=/usr
+
+alias lxc_stop_all_containers="lxc list | grep RUNNING | cut -f 2 -d '|' | sudo xargs lxc stop"
+
+export PATH=$PATH:/usr/local/go/bin
+alias mount_share="/usr/bin/vmhgfs-fuse .host:/share /home/ortbauma/workspace/share -o subtype=vmhgfs-fuse"
+alias px="/home/ortbauma/workspace/tools/predix-cli/bin/linux64/predix"
