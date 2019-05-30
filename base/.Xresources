@@ -8,7 +8,7 @@
 XTerm*selectToClipboard: true
 XTerm*utf8: 1
 XTerm*termName: xterm-256color
-XTerm*VT100.faceName:   Terminus:pixelsize=12
+XTerm*VT100.faceName:   Terminus:pixelsize=16
 XTerm*internalBorder: 3
 XTerm*loginShell: true
 XTerm*scrollBar: false
