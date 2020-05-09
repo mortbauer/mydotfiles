@@ -1,5 +1,6 @@
 #source $HOME/.profile
-export PATH="$PATH:/home/martin/.local/bin"
+export PATH="$PATH:/home/martin/.local/bin:/opt/google-cloud-sdk/bin"
+export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
 
 # Some Useful Aliases
 alias c="clear;ls"
@@ -9,7 +10,7 @@ alias lss="ls -ltra|less"
 alias la="ls -lsa|less"
 alias cls="clear"
 alias e="exit"
-alias gs="git status -uno"
+#alias gs="git status -uno"
 
 # Custom Pythonista Prompt
 set -l magenta (set_color -o magenta)

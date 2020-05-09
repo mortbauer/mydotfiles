@@ -14,7 +14,7 @@ alias mv=' timeout 8 mv -iv'
 alias rm=' timeout 3 rm -Iv --one-file-system'
 alias shred=' timeout 3 shred -v'
 # editor
-export EDITOR="vim"
+export EDITOR="gvim"
 alias ag="noglob ag"
 alias pip="noglob pip"
 # matplotlib
@@ -54,3 +54,5 @@ alias cs_deb="/home/martin/opt/code_saturne-svn-debug/bin/code_saturne"
 alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 # }}}
 
+export PATH="$HOME/.node_modules/bin:$HOME/.npm/bin:$PATH"
+export npm_config_prefix=~/.node_modules

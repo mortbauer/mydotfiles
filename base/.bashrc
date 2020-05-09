@@ -90,3 +90,6 @@ function title {
 }
 # }}} Title
 
+
+# added by travis gem
+[ -f /home/martin/.travis/travis.sh ] && source /home/martin/.travis/travis.sh
