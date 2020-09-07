@@ -5,5 +5,5 @@
 set bell-style none
 
 # to only display commands with same beginnig
-"\e[A":history-search-backward
-"\e[B":history-search-forward
+#"\e[A":history-search-backward
+#"\e[B":history-search-forward

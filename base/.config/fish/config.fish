@@ -1,5 +1,5 @@
 #source $HOME/.profile
-export PATH="$PATH:/home/martin/.local/bin:/opt/google-cloud-sdk/bin"
+export PATH="$PATH:/home/martin/.local/bin:/opt/google-cloud-sdk/bin:/opt/blender/blender-2.90.0-linux64/"
 export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
 
 # Some Useful Aliases

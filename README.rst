@@ -7,3 +7,7 @@ Managed with gnu stow, just run::
 
 to symlink all files in the base directory into path pointed to by the $HOME
 environment variable.
+
+And run::
+
+    ./bootstrap.sh
