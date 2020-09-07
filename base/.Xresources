@@ -74,8 +74,8 @@ URxvt*depth:            32
 URxvt*buffered:         true
 URxvt*jumpScroll:       true
 URxvt*geometry:         112x25
-!URxvt*font:             xft:Terminus (TTF):pixelsize=18
-URxvt*font:             xft:Ubuntu Mono:pixelsize=20
+URxvt*font:             xft:Terminus (TTF):pixelsize=18
+!URxvt*font:             xft:Ubuntu Mono:pixelsize=20
 URxvt*scrollBar:        false
 URxvt*internalBorder:   6
 URxvt*tabbed.new-button:no

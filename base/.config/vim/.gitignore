@@ -4,3 +4,4 @@ vundles
 sessions
 spell
 plugged
+autoload/plug.vim
