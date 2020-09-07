@@ -75,7 +75,7 @@ URxvt*buffered:         true
 URxvt*jumpScroll:       true
 URxvt*geometry:         112x25
 !URxvt*font:             xft:Terminus (TTF):pixelsize=18
-URxvt*font:             xft:Ubuntu Mono:pixelsize=24
+URxvt*font:             xft:Ubuntu Mono:pixelsize=20
 URxvt*scrollBar:        false
 URxvt*internalBorder:   6
 URxvt*tabbed.new-button:no
@@ -96,7 +96,7 @@ URxvt*xftAntialias:     true
 URxvt*transparent:      false
 ! }}}
 ! {{{ Plugins
-URxvt*perl-ext-common:  default,vtwheel,matcher,keyboard-select,clipboard,fullscreen,font-size
+!URxvt*perl-ext-common:  default,vtwheel,matcher,keyboard-select,clipboard,fullscreen,font-size
 URxvt*url-launcher:     /usr/bin/firefox
 URxvt*secondaryWheel:   true
 URxvt*secondaryScroll:  false
@@ -104,6 +104,8 @@ urxvt*matcher.button:   1
 URxvt.colorUL:          #4682B4
 URxvt*saveLines:        2000
 
+URxvt.keysym.M-C-V:     eval:paste_clipboard
+URxvt.keysym.M-C-C:     eval:selection_to_clipboard
 URxvt.keysym.M-s:       perl:keyboard-select:search
 URxvt.keysym.C-Up:      perl:font-size:increase
 URxvt.keysym.C-Down:    perl:font-size:decrease
