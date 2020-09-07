@@ -498,6 +498,7 @@ subprocess.call(['ps2pdf',os.path.splitext(filepath)[0]+'.ps'],cwd=os.path.split
 EOF
 endfunction
 "noremap <F5> :call PsTricks()<CR>
+let g:tex_flavor='latex'
 "}}} Latex
 "{{{ atp seems a good latex suite
 let g:atp_folding=1

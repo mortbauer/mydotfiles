@@ -56,3 +56,4 @@ alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Cres
 
 export PATH="$HOME/.node_modules/bin:$HOME/.npm/bin:$PATH"
 export npm_config_prefix=~/.node_modules
+export VIMINIT="source $HOME/.config/vim/vimrc"
