@@ -74,7 +74,8 @@ URxvt*depth:            32
 URxvt*buffered:         true
 URxvt*jumpScroll:       true
 URxvt*geometry:         112x25
-URxvt*font:             xft:Terminus (TTF):pixelsize=18
+!URxvt*font:             xft:Terminus (TTF):pixelsize=18
+URxvt*font:             xft:Ubuntu Mono:pixelsize=24
 URxvt*scrollBar:        false
 URxvt*internalBorder:   6
 URxvt*tabbed.new-button:no
@@ -82,7 +83,8 @@ URxvt*tabbed.title:     no
 URxvt*dynamicColors:    no
 URxvt*visualBell:       true
 URxvt*urgentOnBell:     false
-URxvt*termName:         rxvt-256color
+URxvt*termName:         screen
+!URxvt*termName:         rxvt-256color
 URxvt*imLocale:         en_US.UTF-8
 urxvt*loginShell:       false
 URxvt*scrollstyle:      plain
