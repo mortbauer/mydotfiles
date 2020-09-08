@@ -1,0 +1,89 @@
+---
+- name: My linux setup
+  hosts: localhost
+  connection: local
+  vars:
+    user: martin
+  tasks:
+    #- name: Get curreent user
+      #set_fact:
+        #user: "{{ lookup('env','USER') }}"
+    - name: Add user to sudoers
+      become: true
+      copy:
+          dest: "/etc/sudoers.d/00_no_password_{{ user }}"
+          content: "{{ user }} ALL=(ALL) NOPASSWD:ALL"
+    - name: Install development software
+      become: true
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - vim
+        - neovim-qt
+        - curl
+        - stow
+        - git
+        - tmux
+        - fish
+        - ranger
+        - python3
+        - python3-venv
+        - python3-wheel
+        - keepassxc
+        - glances
+        - gparted
+    - name: Set default shell
+      user:
+        name: "{{ user }}"
+        shell: /usr/bin/fish
+    - name: Fetch dotfiles
+      git:
+        repo: https://github.com/mortbauer/mydotfiles
+        dest: "/home/{{ user }}/.mydotfiles"
+    - name: Run bootstrap
+      shell:
+        cmd: "bash /home/{{ user }}/.mydotfiles/bootstrap.sh"
+    - name: Link configs
+      shell:
+        cmd: "stow base -t /home/{{ user }}"
+        chdir: "/home/{{ user }}/.mydotfiles"
+    - name: Get status of virtualenv
+      stat:
+        path: "/home/{{ user }}/.venv38"
+      register: venv
+    - name: Virtualenv
+      shell:
+        cmd: "python3 -m venv /home/{{ user }}/.venv38"
+      when: venv.stat.exists == False
+    - name: Install gnupg2
+      apt:
+        name: gnupg2
+        state: latest
+    - name: Add Syncthing key
+      apt_key:
+        url: https://syncthing.net/release-key.txt
+        #keyring: /etc/apt/trusted.gpg.d/syncthing.gpg
+        state: present
+      become: true
+    - name: Add syncthing repo
+      apt_repository:
+        repo: deb https://apt.syncthing.net/ syncthing stable
+        state: present
+      become: true
+    - name: Install syncthing
+      package:
+        name: syncthing
+        state: present
+      become: true
+    - name: Start and enbale syncthing
+      systemd:
+        name: "syncthing@{{ user }}"
+        enabled: true
+        state: started
+
+    #- name: Install dropbox-sync
+      #pip:
+        #name: git+https://github.com/harsimrans/DropboxSyncer.git
+        #executable: "/home/{{ user }}/.venv38/bin/pip"
+        #state: present
