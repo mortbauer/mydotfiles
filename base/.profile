@@ -1,59 +1,29 @@
-# shell neutral environment variable settings
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
 
-# xdg_base variables point actually to default, maybe not needed, but need to
-# check my vim configs
-#export PATH=$HOME/bin:$HOME/.local/bin:$PATH
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
-export TERMCMD="urxvt"
-export GOPATH="$HOME/.go"
-alias ls='ls --color=auto'
-# add some security
-alias mv=' timeout 8 mv -iv'
-alias rm=' timeout 3 rm -Iv --one-file-system'
-alias shred=' timeout 3 shred -v'
-# editor
-export EDITOR="gvim"
-alias ag="noglob ag"
-alias pip="noglob pip"
-# matplotlib
-export MPLCONFIGDIR="$XDG_CONFIG_HOME/matplotlib"
-alias youtube-dl="noglob youtube-dl"
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
 
-alias fm4="mplayer http://mp3stream1.apasf.apa.at:8000"
-alias fm4r="streamripper http://mp3stream1.apasf.apa.at:8000"
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
 
-alias deen="dict -d deu-eng"
-alias ende="dict -d eng-deu"
-alias gcide="dict -d gcide"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
-export WIKI="/data/InfoSys/Wiki/"
-alias ewiki="ranger $WIKI/source"
-alias uwiki="cd $WIKI; make html; cd -"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
-export DIPL_PATH="/home/martin/Documents/Studies/DIPL/ventilator/"
-
-alias performance="sudo cpupower frequency-set -g performance"
-alias permissions='stat -c "%A %a %n"'
-
-alias fmail='offlineimap -c ~/.config/offlineimap/offlineimap.conf'
-export OF23_BASHRC="/home/martin/opt/OpenFOAM/OpenFOAM-2.3.x/etc/bashrc"
-alias of23='source $OF23_BASHRC;source $WM_PROJECT_DIR/bin/tools/RunFunctions'
-
-export OFX_BASHRC="/home/martin/OpenFOAM/OpenFOAM-2.3.x/etc/bashrc"
-alias ofx='source $OFX_BASHRC;source $WM_PROJECT_DIR/bin/tools/RunFunctions'
-
-export OFEX_BASHRC="/home/martin/OpenFOAM/foam-extend-3.1/etc/bashrc"
-alias ofex='source $OFEX_BASHRC'
-
-export PARAVIEW_LIBDIR="/usr/lib/paraview-4.2/"
-# code saturne
-alias cs_prod="/home/martin/opt/code_saturne-production/bin/code_saturne"
-alias cs_deb="/home/martin/opt/code_saturne-svn-debug/bin/code_saturne"
-alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-# }}}
-
-export PATH="$HOME/.node_modules/bin:$HOME/.npm/bin:$PATH"
-export npm_config_prefix=~/.node_modules
 export VIMINIT="source $HOME/.config/vim/vimrc"
